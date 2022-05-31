@@ -38,5 +38,12 @@ body {
 
 button {
   border-radius: 6px;
+  border: 0 solid #e2e8f0;
   padding: 6px;
+  background-color: #fff;
+  color: #0d172a;
+  &:hover {
+    background-color: #1e293b;
+    color: #fff;
+  }
 }
