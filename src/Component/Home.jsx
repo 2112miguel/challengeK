@@ -18,11 +18,14 @@ export const Home = () => {
   return (
     <form className="flex-row">
       <div className="flex-col">
-        <section className="inputsStyle">
+        <section>
+          <h2>Tipos de campos que se permiten</h2>
+        </section>
+        <section className="inputsStyle ">
           <label>Name</label>
           <input type="text" name="name" value="" />
         </section>
-        <section className="inputsStyle">
+        <section className="inputsStyle ">
           <label>Select</label>
           <select name="" id=""></select>
         </section>
@@ -32,42 +35,35 @@ export const Home = () => {
         </section>
       </div>
       <div>
-        {inputs.map((element, index) => (
+        <h2>Campos que se pueden agregar y eliminar</h2>
+        {inputs.map((inputElement, index) => (
           <div className="card " key={index}>
             <div>
-              {element.type === "select" ? (
+              {inputElement.type === "select" ? (
                 <div>
                   <select name="" id="">
-                    <option value="">{element.label}</option>
+                    <option value="">{inputElement.label}</option>
                   </select>
                 </div>
-              ) : element.type === "text" ? (
+              ) : inputElement.type === "text" ? (
                 <div>
-                  <input type="text" name="name" value={element.label} />
+                  <input type="text" name="name" value={inputElement.label} />
                 </div>
               ) : (
                 <div>
                   <input type="radio" />
-                  <label>{element.label} </label>
+                  <label>{inputElement.label} </label>
                 </div>
               )}
             </div>
 
             <div>
-              <button
-                type="button"
-                className="button remove"
-                onClick={() => removeFormFields(index)}
-              >
+              <button type="button" onClick={() => removeFormFields(index)}>
                 Remove
               </button>
             </div>
             <div className="button-section">
-              <button
-                className="button add"
-                type="button"
-                onClick={() => addFormFields(element)}
-              >
+              <button type="button" onClick={() => addFormFields(inputElement)}>
                 Add
               </button>
             </div>
