@@ -5,13 +5,13 @@ import field from "./Data/Fields.json";
 export const Home = () => {
   const [inputs, setinputs] = useState(field.fields);
 
-  let addFormFields = (element) => {
+  let addFields = (element) => {
     setinputs([...inputs, element]);
   };
 
-  let removeFormFields = (i) => {
+  let removeFields = (index) => {
     let newinputs = [...inputs];
-    newinputs.splice(i, 1);
+    newinputs.splice(index, 1);
     setinputs(newinputs);
   };
 
@@ -22,15 +22,15 @@ export const Home = () => {
           <h2>Tipos de campos que se permiten</h2>
         </section>
         <section className="inputsStyle ">
-          <label>Name</label>
+          <label className="p-x">Name</label>
           <input type="text" name="name" value="" />
         </section>
         <section className="inputsStyle ">
-          <label>Select</label>
+          <label className="p-x">Select</label>
           <select name="" id=""></select>
         </section>
         <section className="inputsStyle">
-          <label>radio</label>
+          <label className="p-x">radio</label>
           <input type="radio" />
         </section>
       </div>
@@ -58,12 +58,12 @@ export const Home = () => {
             </div>
 
             <div>
-              <button type="button" onClick={() => removeFormFields(index)}>
+              <button type="button" onClick={() => removeFields(index)}>
                 Remove
               </button>
             </div>
-            <div className="button-section">
-              <button type="button" onClick={() => addFormFields(inputElement)}>
+            <div>
+              <button type="button" onClick={() => addFields(inputElement)}>
                 Add
               </button>
             </div>
