@@ -1,0 +1,22 @@
+{
+  "fields": [
+    {
+      "component": "text",
+      "label": "First Name",
+      "type": "text",
+      "_uid": ""
+    },
+    {
+      "component": "text",
+      "label": "Option 1",
+      "type": "select",
+      "_uid": ""
+    },
+    {
+      "component": "text",
+      "label": "Option",
+      "type": "radio",
+      "_uid": ""
+    }
+  ]
+}

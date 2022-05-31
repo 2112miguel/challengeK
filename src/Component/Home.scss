@@ -1,0 +1,33 @@
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.inputsStyle {
+  margin: 5px;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  padding: 10px;
+  height: 100px;
+  width: 300px;
+}
+
+input {
+  border-radius: 6px;
+  padding: 6px;
+}
+
+body {
+  background-color: #242a38;
+  color: white;
+}
