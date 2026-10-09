@@ -1,49 +1,23 @@
-.flex-col {
-  display: flex;
-  flex-direction: column;
-}
+$surface: #ffffff;
+$ink: #14213d;
+$muted: #65758b;
+$line: #dce4ee;
+$accent: #2867d8;
 
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
+* { box-sizing: border-box; }
+body { margin: 0; background: #f4f7fb; color: $ink; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+button, input, select { font: inherit; }
+.builder-page { max-width: 1480px; margin: 0 auto; padding: 48px 28px; }
+.hero { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }.eyebrow { color: $accent; font-size: .72rem; font-weight: 800; letter-spacing: .13em; }.hero h1 { margin: 8px 0; font-size: clamp(2rem, 5vw, 3.7rem); letter-spacing: -.045em; }.hero p, .panel p { margin: 0; color: $muted; line-height: 1.55; }.counter { padding: 9px 13px; border-radius: 999px; background: #e4eefc; color: #1e55b5; font-size: .78rem; font-weight: 800; white-space: nowrap; }
+.builder-layout { display: grid; grid-template-columns: 260px minmax(310px, 1fr) minmax(320px, .9fr); align-items: start; gap: 20px; }.panel { border: 1px solid $line; border-radius: 16px; background: $surface; box-shadow: 0 12px 30px rgba(35, 64, 105, .06); }.panel h2 { margin: 0 0 5px; font-size: 1rem; }.palette { padding: 20px; }.field-types { display: grid; gap: 10px; margin-top: 18px; }.field-types button { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px; border: 1px solid $line; border-radius: 10px; background: #fff; color: $ink; text-align: left; cursor: pointer; transition: .18s ease; }.field-types button:hover { border-color: $accent; background: #f5f8ff; transform: translateY(-1px); }.field-types b { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 7px; background: #e7eefc; color: $accent; }.field-types span { display: grid; gap: 2px; }.field-types strong { font-size: .78rem; }.field-types small { color: $muted; font-size: .66rem; }.field-types i { margin-left: auto; color: $accent; font-size: 1.2rem; font-style: normal; }
+.editor, .preview { padding: 20px; }.panel-heading { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 19px; }.panel-heading > span { display: grid; min-width: 28px; height: 28px; place-items: center; border-radius: 50%; background: #eef2f6; color: $muted; font-size: .73rem; font-weight: 800; }.live { border-radius: 5px !important; background: #e4f7eb !important; color: #217a46 !important; font-size: .6rem !important; letter-spacing: .08em; }
+.field-list { display: grid; gap: 10px; }.field-card { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto auto; align-items: end; gap: 10px; padding: 12px; border: 1px solid $line; border-radius: 10px; }.order { color: #92a0b2; font-size: .69rem; font-weight: 800; }.field-main { display: grid; gap: 5px; }.field-main label, .preview-field > label { color: $muted; font-size: .68rem; font-weight: 800; }.field-main input { width: 100%; padding: 7px 0; border: 0; border-bottom: 1px solid #cbd6e3; outline: 0; color: $ink; font-size: .84rem; font-weight: 700; }.field-main input:focus { border-color: $accent; }.field-type { color: #6c7c91; font-size: .64rem; }.required { display: flex; align-items: center; gap: 4px; color: $muted; font-size: .67rem; white-space: nowrap; }.delete { padding: 7px 9px; border: 0; border-radius: 6px; background: #fff0f0; color: #bd3434; font-size: .67rem; font-weight: 800; cursor: pointer; }.delete:hover { background: #ffe0e0; }.empty-state { padding: 25px; border: 1px dashed #c3cfdd; border-radius: 10px; color: $muted; font-size: .8rem; text-align: center; }
+.preview form { display: grid; gap: 14px; }.preview-field { display: grid; gap: 6px; }.preview-field > label { color: $ink; }.preview-field em { margin-left: 3px; color: #d13d3d; font-style: normal; }.preview input[type="text"], .preview select { width: 100%; padding: 10px; border: 1px solid #cbd6e3; border-radius: 8px; outline: 0; background: #fff; color: $ink; font-size: .82rem; }.preview input:focus, .preview select:focus { border-color: $accent; box-shadow: 0 0 0 3px #2867d81a; }.radio-options { display: flex; flex-wrap: wrap; gap: 7px; }.radio-options label { display: flex; align-items: center; gap: 5px; padding: 7px 9px; border: 1px solid $line; border-radius: 7px; color: #45566e; font-size: .75rem; }.submit { padding: 11px 14px; border: 0; border-radius: 8px; background: $accent; color: #fff; font-size: .8rem; font-weight: 800; cursor: pointer; }.submit:hover { background: #1d55b8; }.success { margin: 0; color: #217a46 !important; font-size: .78rem; font-weight: 700; }
+@media (max-width: 1080px) { .builder-layout { grid-template-columns: 230px 1fr; }.preview { grid-column: 2; }.field-types { grid-template-columns: repeat(3, 1fr); }.field-types button { align-items: start; }.field-types small, .field-types i { display: none; } }
+@media (max-width: 720px) { .builder-page { padding: 28px 16px; }.hero { align-items: start; flex-direction: column; }.builder-layout { grid-template-columns: 1fr; }.preview { grid-column: auto; }.field-types { grid-template-columns: repeat(3, 1fr); }.field-types button { justify-content: center; }.field-types span { display: none; }.field-card { grid-template-columns: 25px 1fr auto; }.required { grid-column: 2; }.delete { grid-column: 3; grid-row: 1 / span 2; align-self: center; } }
 
-.inputsStyle {
-  margin: 5px;
-}
-
-.card {
-  display: flex;
-  justify-content: space-between;
-  margin: 10px;
-  padding: 10px;
-  height: 100px;
-  width: 300px;
-}
-
-.p-x {
-  padding: 0px 10px;
-}
-
-input {
-  border-radius: 6px;
-  padding: 6px;
-}
-
-body {
-  background-color: #242a38;
-  color: white;
-}
-
-button {
-  border-radius: 6px;
-  border: 0 solid #e2e8f0;
-  padding: 6px;
-  background-color: #fff;
-  color: #0d172a;
-  &:hover {
-    background-color: #1e293b;
-    color: #fff;
-  }
-}
+.delete { display: inline-flex; align-items: center; justify-content: center; gap: 5px; border: 1px solid #f2c8c8; }
+.delete::before { content: '×'; font-size: 1rem; line-height: .7; }
+.preview-label { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.preview-delete { padding: 3px 6px; border: 0; border-radius: 4px; background: transparent; color: #bd3434; font-size: .64rem; font-weight: 800; cursor: pointer; }
+.preview-delete:hover { background: #fff0f0; }
